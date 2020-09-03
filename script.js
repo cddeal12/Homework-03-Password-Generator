@@ -9,6 +9,7 @@ var specials = ["!","@","#","$","%","^","&","*","(",")","_","-","+","=","[","]",
 // Function to generate a brand-new password from prompts
 function generatePassword() {
     var includes = [];
+    var pass = "";
     var length = prompt("How many characters?");
     length = parseInt(length);
     //If the length is too long or short, the page is reset after an explanatory alert
@@ -24,7 +25,6 @@ function generatePassword() {
         if (lowerToggle) {
             includes = includes.concat(lowers);
             console.log(includes);
-            
         }
 
         var upperToggle = confirm("Include uppercase letters?");
@@ -44,11 +44,28 @@ function generatePassword() {
             includes = includes.concat(specials);
             console.log(includes);
         }
+
+        // Checks to make sure options were chosen, then resets the page or continues through password creation
+        if (lowerToggle === false && upperToggle === false && numToggle === false && specialToggle === false) {
+            alert("Please choose at least one type of character.");
+            location.reload;
+        } else {
+            //Picks a random character and assigns it to the password, repeats 'length' times.
+            for (i = 1;i <= length ;i++ ) {
+                randomIndex = Math.floor(Math.random()*Math.floor(includes.length));
+                console.log(randomIndex);
+                randomCharacter = includes[randomIndex];
+                pass = pass.concat(randomCharacter);
+                console.log(pass);
+            }
+            return pass
+        }
         
     } else {
         alert("Please choose a length between 8 and 128.");
         location.reload;
     }
+
 }
 
 // Write password to the #password input
