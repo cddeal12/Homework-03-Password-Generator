@@ -8,6 +8,7 @@ var specials = ["!","@","#","$","%","^","&","*","(",")","_","-","+","=","[","]",
 
 // Function to generate a brand-new password from prompts
 function generatePassword() {
+    var includes = [];
     var length = prompt("How many characters?");
     length = parseInt(length);
     //If the length is too long or short, the page is reset after an explanatory alert
@@ -15,11 +16,35 @@ function generatePassword() {
         alert("Please choose a number between 8 and 128.");
         location.reload();
     } else if (length >= 8 || length <= 128) {
+
+        //Toggles each of the categories of characters on or off based on a confirm window
+        //Adds the toggled categories to the array of all inclusions
         var lowerToggle = confirm("Include lowercase letters? (Confirm for yes, cancel for no)");
+        console.log(lowerToggle);
+        if (lowerToggle) {
+            includes = includes.concat(lowers);
+            console.log(includes);
+            
+        }
+
         var upperToggle = confirm("Include uppercase letters?");
+        if (upperToggle) {
+            includes = includes.concat(uppers);
+            console.log(includes);
+        }
+
         var numToggle = confirm("Include numeric characters?");
+        if (numToggle) {
+            includes = includes.concat(numbers);
+            console.log(includes);
+        }
+
         var specialToggle = confirm("include special characters?");
-        var includes = []
+        if (specialToggle) {
+            includes = includes.concat(specials);
+            console.log(includes);
+        }
+        
     } else {
         alert("Please choose a length between 8 and 128.");
         location.reload;
