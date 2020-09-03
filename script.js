@@ -21,28 +21,23 @@ function generatePassword() {
         //Toggles each of the categories of characters on or off based on a confirm window
         //Adds the toggled categories to the array of all inclusions
         var lowerToggle = confirm("Include lowercase letters? (Confirm for yes, cancel for no)");
-        console.log(lowerToggle);
         if (lowerToggle) {
             includes = includes.concat(lowers);
-            console.log(includes);
         }
 
         var upperToggle = confirm("Include uppercase letters?");
         if (upperToggle) {
             includes = includes.concat(uppers);
-            console.log(includes);
         }
 
         var numToggle = confirm("Include numeric characters?");
         if (numToggle) {
             includes = includes.concat(numbers);
-            console.log(includes);
         }
 
         var specialToggle = confirm("include special characters?");
         if (specialToggle) {
             includes = includes.concat(specials);
-            console.log(includes);
         }
 
         // Checks to make sure options were chosen, then resets the page or continues through password creation
@@ -53,10 +48,8 @@ function generatePassword() {
             //Picks a random character and assigns it to the password, repeats 'length' times.
             for (i = 1;i <= length ;i++ ) {
                 randomIndex = Math.floor(Math.random()*Math.floor(includes.length));
-                console.log(randomIndex);
                 randomCharacter = includes[randomIndex];
                 pass = pass.concat(randomCharacter);
-                console.log(pass);
             }
             return pass
         }

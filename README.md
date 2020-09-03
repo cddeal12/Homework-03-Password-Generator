@@ -1,2 +1,8 @@
 # Homework-03-Password-Generator
-A site that generates a password based on user submitted criteria.
+This assignment was to create the javascript for a site that creates a random password that meet the user's chosen criteria. My website meets all of the standards for this, including validating the user's inputs and sending alerts for states in which the user needs to change their inputs. The site asks questions through prompts and when it is done, generates and writes a new random password based on the character types the user selected in said prompts.
+
+# Method
+For my psuedo-code I wrote out my method in this way. First, the user is prompted to input a number between 8 and 128 to set the length of the password. Failure to do this results in an alert message and the site reloading to start over. Next, the user is asked 'yes or no' for four types of character, each one fully stored inside an array. For each type of character that the user chooses 'yes' on, that character's array is added to an array of all possible characters the password may contain. After the questions are through, a for loop creates a random index of the array of possible characters and uses it to add a random character to the final password. It does this a number of times equal to the user's chosen length.
+
+# Process
+My psuedo-code worked mostly as intended. The only real diversions came in the form of using functions I was unfamiliar with, such as .concat() to add arrays and strings together. I also made some slight changes to add alerts and page resets when users did something unintended, such as choosing 'no' for every character type. In the end though, my planned structure was able to meet all of my criteria and with little tweaking.
